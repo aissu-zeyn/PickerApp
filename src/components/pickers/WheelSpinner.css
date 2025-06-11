@@ -1,0 +1,161 @@
+.wheel-spinner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.picker-section {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.add-button {
+  composes: button from '../ListPicker.css';
+  padding: 0.5rem 1rem;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--item-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.remove-button:hover {
+  opacity: 1;
+}
+
+.wheel-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  aspect-ratio: 1;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transform-origin: center;
+}
+
+.wheel-item {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+  transform: rotate(var(--item-rotation)) skew(var(--item-skew));
+  background: var(--item-color);
+  left: 50%;
+  top: 0;
+}
+
+.wheel-item-content {
+  position: absolute;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skew(calc(-1 * var(--item-skew))) rotate(calc(-1 * var(--item-rotation)));
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  padding: 0 1rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid var(--primary-color);
+  z-index: 2;
+}
+
+.spin-button {
+  composes: button from '../ListPicker.css';
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+}
+
+.spin-button.spinning {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.selected-item {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--item-bg);
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+}
+
+.selected-item h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary-color);
+}
+
+.selected-item p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Inherit common styles from ListPicker.css */
+.list-header,
+.input-form,
+.items-container,
+.empty-message {
+  composes: from './ListPicker.css';
+} 
