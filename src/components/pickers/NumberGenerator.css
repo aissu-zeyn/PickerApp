@@ -1,0 +1,128 @@
+.number-generator {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.range-controls {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.range-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range-group label {
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.range-input {
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--item-bg);
+  color: var(--text-color);
+  font-size: 1em;
+  width: 120px;
+  text-align: center;
+}
+
+.number-display {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.generating {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.loading-dots span {
+  animation: loading 1.4s infinite;
+  opacity: 0;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loading {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.result {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.generate-button {
+  padding: 1em 2em;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.generate-button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.generate-button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.generate-button.generating {
+  animation: pulse 1s infinite;
+}
+
+.history {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--item-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.history h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.history-item {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  min-width: 40px;
+} 
