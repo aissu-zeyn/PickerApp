@@ -90,14 +90,14 @@ function WheelSpinner() {
   return (
     <div className="wheel-spinner">
       <div className="picker-section">
-        <div className="input-group">
+        <div className="input-form">
           <input
             type="text"
             value={newItem}
             onChange={(e) => setNewItem(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && addItem()}
             placeholder="Add an item"
-            className="text-input"
+            className="input-field"
           />
           <button onClick={addItem} className="add-button">
             Add
@@ -124,7 +124,10 @@ function WheelSpinner() {
         <svg 
           viewBox="0 0 100 100" 
           className="wheel"
-          style={{ transform: `rotate(${rotation}deg)` }}
+          style={{ 
+            transform: `rotate(${rotation}deg)`,
+            transition: isSpinning ? 'transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67)' : 'none'
+          }}
         >
           {items.map((item, index) => {
             const pos = getTextPosition(index)
@@ -152,14 +155,14 @@ function WheelSpinner() {
             )
           })}
         </svg>
-        <div className="wheel-pointer"></div>
+        <div className="spinner"></div>
       </div>
 
       <div className="picker-section">
         <button
           onClick={spinWheel}
           disabled={isSpinning || items.length === 0}
-          className={`spin-button ${isSpinning ? 'spinning' : ''}`}
+          className="add-button"
         >
           {isSpinning ? 'Spinning...' : 'Spin Wheel'}
         </button>
@@ -167,7 +170,7 @@ function WheelSpinner() {
         <AnimatePresence mode="wait">
           {selectedItem && (
             <motion.div
-              className="selected-item"
+              className="picked-item"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}

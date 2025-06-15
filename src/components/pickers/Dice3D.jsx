@@ -2,14 +2,15 @@ import React, { useRef, useEffect, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
+import diceModel from '../../assets/dice.glb'
 
 export function Dice3D({ isRolling, result, position = [0, 0, 0] }) {
   const diceRef = useRef()
   const [error, setError] = useState(null)
   const [mounted, setMounted] = useState(false)
   
-  // Load the GLB model with the correct base path
-  const { nodes, materials } = useGLTF('/picker-app/dice.glb', undefined, (err) => {
+  // Load the GLB model from assets
+  const { nodes, materials } = useGLTF(diceModel, undefined, (err) => {
     console.error('Error loading model:', err)
     setError(err)
   })
@@ -42,14 +43,14 @@ export function Dice3D({ isRolling, result, position = [0, 0, 0] }) {
       diceRef.current.rotation.y += delta * 5
       diceRef.current.rotation.z += delta * 5
     } else if (result) {
-      // Updated rotation mapping based on observed behavior
+      // Corrected rotation mapping for each number
       const rotations = {
-        1: { x: Math.PI, y: 0, z: 0 },               // When 6 shows, 1 is picked
-        2: { x: Math.PI, y: 0, z: 0 },               // When 6 shows, 2 is picked
-        3: { x: 0, y: 0, z: -Math.PI / 2 },          // When 2 shows, 3 is picked
-        4: { x: 0, y: 0, z: 0 },                     // When 1 shows, 4 is picked
-        5: { x: 0, y: 0, z: 0 },                     // When 5 shows, 5 is picked
-        6: { x: 0, y: 0, z: 0 }                      // When 6 shows, 6 is picked
+        1: { x: 0, y: 0, z: 0 },                     // 1 on top
+        2: { x: -Math.PI / 2, y: 0, z: 0 },          // 2 on top
+        3: { x: 0, y: Math.PI / 2, z: 0 },           // 3 on top
+        4: { x: 0, y: -Math.PI / 2, z: 0 },          // 4 on top
+        5: { x: Math.PI / 2, y: 0, z: 0 },           // 5 on top
+        6: { x: Math.PI, y: 0, z: 0 }                // 6 on top
       }
       
       const targetRotation = rotations[result]

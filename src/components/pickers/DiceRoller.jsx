@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <div className="error-container">
-          <h2>Something went wrong</h2>
+          <h2>Oops! Something went wrong 🎲</h2>
           <details className="error-details">
             <summary>Error Details</summary>
             <p>{this.state.error && this.state.error.toString()}</p>
@@ -38,7 +38,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-export function DiceRoller() {
+export default function DiceRoller() {
   const [result, setResult] = useState(null)
   const [isRolling, setIsRolling] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -60,7 +60,7 @@ export function DiceRoller() {
   }
 
   if (!mounted) {
-    return <div>Loading...</div>
+    return <div>Loading... 🎲</div>
   }
 
   return (
@@ -68,14 +68,14 @@ export function DiceRoller() {
       <div className="dice-roller">
         <div className="controls">
           <button onClick={rollDice} disabled={isRolling}>
-            {isRolling ? 'Rolling...' : 'Roll'}
+            {isRolling ? '🎲 Rolling...' : '🎲 Roll the Dice!'}
           </button>
         </div>
         
         <div className="canvas-container">
           <Canvas>
-            <color attach="background" args={['#1a1a1a']} />
-            <ambientLight intensity={0.5} />
+            <color attach="background" args={['#ffd1dc']} />
+            <ambientLight intensity={0.7} />
             <directionalLight position={[5, 5, 5]} intensity={1} />
             <directionalLight position={[-5, 5, -5]} intensity={0.5} />
             <OrbitControls enablePan={false} />

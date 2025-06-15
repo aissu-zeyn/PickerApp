@@ -1,12 +1,12 @@
 :root {
-  --primary-color: #646cff;
-  --primary-hover: #535bf2;
-  --background-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
-  --border-color: #333;
-  --item-bg: #1a1a1a;
-  --bg-color: #242424;
-  --hover-color: #333;
+  --primary-color: #ff69b4;
+  --primary-hover: #ff1493;
+  --background-color: #fff5f7;
+  --text-color: #333;
+  --border-color: #ffb6c1;
+  --item-bg: #fff;
+  --bg-color: #fff5f7;
+  --hover-color: #ffd1dc;
 }
 
 .app {
@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   background: var(--bg-color);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .main-content {
@@ -31,26 +32,31 @@
   z-index: 100;
   background: var(--bg-color);
   padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
   display: flex;
   align-items: center;
+  box-shadow: 0 2px 10px rgba(255, 105, 180, 0.1);
 }
 
 .back-button {
-  color: var(--text-color);
+  color: var(--primary-color);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background: white;
+  border: 2px solid var(--border-color);
 }
 
 .back-button:hover {
   background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
 }
 
 @media (min-width: 768px) {
@@ -63,6 +69,8 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: var(--primary-color);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
 }
 
 .input-form {
@@ -73,37 +81,47 @@ h1 {
 }
 
 .input-field {
-  padding: 0.6em 1.2em;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: var(--item-bg);
+  padding: 0.8em 1.2em;
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  background-color: white;
   color: var(--text-color);
   font-size: 1em;
   width: 300px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  transition: all 0.3s ease;
 }
 
 .input-field:focus {
-  outline: 2px solid var(--primary-color);
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
 }
 
 .add-button, .pick-button {
-  padding: 0.6em 1.2em;
-  border-radius: 8px;
+  padding: 0.8em 1.5em;
+  border-radius: 25px;
   border: none;
   background-color: var(--primary-color);
   color: white;
   font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.25s;
+  transition: all 0.3s ease;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
 }
 
 .add-button:hover, .pick-button:hover {
   background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
 }
 
 .pick-button:disabled {
-  background-color: #666;
+  background-color: #ffb6c1;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .items-container {
@@ -121,29 +139,41 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8em 1.2em;
-  margin: 0.5rem 0;
-  background-color: var(--item-bg);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  padding: 1em 1.5em;
+  margin: 0.8rem 0;
+  background-color: white;
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 105, 180, 0.1);
+}
+
+.item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
 }
 
 .remove-button {
   background: none;
   border: none;
-  color: #ff4444;
+  color: var(--primary-color);
   font-size: 1.2em;
   cursor: pointer;
-  padding: 0 0.5em;
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
 .remove-button:hover {
-  color: #ff0000;
+  color: var(--primary-hover);
+  background: var(--hover-color);
 }
 
 .empty-message {
-  color: #666;
+  color: #ff69b4;
   font-style: italic;
+  text-align: center;
+  font-size: 1.2em;
 }
 
 .picker-section {
@@ -152,11 +182,15 @@ h1 {
 
 .picked-item {
   margin-top: 1rem;
-  padding: 1rem;
-  background-color: var(--item-bg);
-  border-radius: 8px;
-  border: 1px solid var(--primary-color);
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 25px;
+  border: 2px solid var(--primary-color);
   animation: fadeIn 0.5s ease-in;
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
 }
 
 @keyframes fadeIn {

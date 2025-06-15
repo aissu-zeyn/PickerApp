@@ -41,14 +41,14 @@ function ListPicker() {
   return (
     <div className="list-picker">
       <div className="picker-section">
-        <div className="input-group">
+        <div className="input-form">
           <input
             type="text"
             value={newItem}
             onChange={(e) => setNewItem(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && addItem()}
-            placeholder="Add an item"
-            className="text-input"
+            placeholder="Add an item..."
+            className="input-field"
           />
           <button onClick={addItem} className="add-button">
             Add
@@ -83,7 +83,7 @@ function ListPicker() {
         <AnimatePresence mode="wait">
           {selectedItem && (
             <motion.div
-              className="selected-item"
+              className="picked-item"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}

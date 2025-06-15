@@ -7,13 +7,14 @@ export default defineConfig({
   base: '/picker-app/',
   server: {
     host: true, // This allows connections from your local network
-    port: 5174,
-    strictPort: true, // Don't try other ports if 5174 is taken
+    port: 3000,
+    strictPort: true, // Don't try other ports if 3000 is taken
     open: true // Open the browser automatically
   },
   build: {
     sourcemap: true,
     outDir: 'dist',
     assetsDir: 'assets'
-  }
+  },
+  assetsInclude: ['**/*.glb']
 })
