@@ -1,4 +1,5 @@
 .list-picker {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,12 +59,49 @@
   padding: 0;
   max-width: 500px;
   margin: 0 auto;
+=======
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.picker-section {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.add-button {
+  composes: button from '../ListPicker.css';
+  padding: 0.5rem 1rem;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
 }
 
 .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   padding: 1em 1.5em;
   margin: 0.8rem 0;
   background-color: white;
@@ -78,11 +116,18 @@
 .item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+=======
+  padding: 0.5rem;
+  background: var(--item-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
 }
 
 .remove-button {
   background: none;
   border: none;
+<<<<<<< HEAD
   color: #ff69b4;
   font-size: 1.2em;
   cursor: pointer;
@@ -174,4 +219,48 @@
     opacity: 1;
     transform: translateY(0);
   }
+=======
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.remove-button:hover {
+  opacity: 1;
+}
+
+.pick-button {
+  composes: button from '../ListPicker.css';
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+}
+
+.pick-button.picking {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.selected-item {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--item-bg);
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+}
+
+.selected-item h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary-color);
+}
+
+.selected-item p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
 } 

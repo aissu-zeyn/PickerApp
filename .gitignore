@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
+=======
+
+/release/
+/release/**/*
+*.exe
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd

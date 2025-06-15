@@ -9,7 +9,11 @@ import './App.css'
 
 function Navigation() {
   const location = useLocation()
+<<<<<<< HEAD
   const isHome = location.pathname === '/'
+=======
+  const isHome = location.pathname === '/' || location.pathname === '/picker-app/' || location.pathname === '/picker-app'
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
 
   if (isHome) return null
 

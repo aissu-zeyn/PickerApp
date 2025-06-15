@@ -90,14 +90,22 @@ function WheelSpinner() {
   return (
     <div className="wheel-spinner">
       <div className="picker-section">
+<<<<<<< HEAD
         <div className="input-form">
+=======
+        <div className="input-group">
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
           <input
             type="text"
             value={newItem}
             onChange={(e) => setNewItem(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && addItem()}
             placeholder="Add an item"
+<<<<<<< HEAD
             className="input-field"
+=======
+            className="text-input"
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
           />
           <button onClick={addItem} className="add-button">
             Add
@@ -124,10 +132,14 @@ function WheelSpinner() {
         <svg 
           viewBox="0 0 100 100" 
           className="wheel"
+<<<<<<< HEAD
           style={{ 
             transform: `rotate(${rotation}deg)`,
             transition: isSpinning ? 'transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67)' : 'none'
           }}
+=======
+          style={{ transform: `rotate(${rotation}deg)` }}
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
         >
           {items.map((item, index) => {
             const pos = getTextPosition(index)
@@ -155,14 +167,22 @@ function WheelSpinner() {
             )
           })}
         </svg>
+<<<<<<< HEAD
         <div className="spinner"></div>
+=======
+        <div className="wheel-pointer"></div>
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
       </div>
 
       <div className="picker-section">
         <button
           onClick={spinWheel}
           disabled={isSpinning || items.length === 0}
+<<<<<<< HEAD
           className="add-button"
+=======
+          className={`spin-button ${isSpinning ? 'spinning' : ''}`}
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
         >
           {isSpinning ? 'Spinning...' : 'Spin Wheel'}
         </button>
@@ -170,7 +190,11 @@ function WheelSpinner() {
         <AnimatePresence mode="wait">
           {selectedItem && (
             <motion.div
+<<<<<<< HEAD
               className="picked-item"
+=======
+              className="selected-item"
+>>>>>>> d2668f09f45e95ad1823e954f15c4ca55b5fd4cd
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
