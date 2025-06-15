@@ -24,7 +24,7 @@ function Navigation() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/picker-app">
       <div className="app">
         <Navigation />
         <main className="main-content">
